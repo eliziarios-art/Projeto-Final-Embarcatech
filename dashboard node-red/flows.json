@@ -1,0 +1,463 @@
+[
+    {
+        "id": "88014e6b70bd83d8",
+        "type": "tab",
+        "label": "Irrigador"
+    },
+    {
+        "id": "d87da567864705cf",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "4d17a4f415f33a04",
+        "type": "ui_tab",
+        "name": "Irrigador",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "15671434f34e33fc",
+        "type": "ui_group",
+        "name": "Status",
+        "tab": "4d17a4f415f33a04",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "b9b0e9983d9354e4",
+        "type": "ui_group",
+        "name": "Controles",
+        "tab": "4d17a4f415f33a04",
+        "order": 2,
+        "width": "6"
+    },
+    {
+        "id": "ba4901eaa44ee136",
+        "type": "mqtt-broker",
+        "name": "Broker",
+        "broker": "192.168.15.90",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "06bf7e8874e27a3c",
+        "type": "mqtt in",
+        "z": "88014e6b70bd83d8",
+        "name": "Telemetry",
+        "topic": "irrigador/telemetry",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "ba4901eaa44ee136",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 80,
+        "y": 120,
+        "wires": [
+            [
+                "252427550cdfbbee"
+            ]
+        ]
+    },
+    {
+        "id": "b97b4583b15c2d3e",
+        "type": "ui_gauge",
+        "z": "88014e6b70bd83d8",
+        "name": "Solo",
+        "group": "15671434f34e33fc",
+        "order": 1,
+        "width": "",
+        "height": "",
+        "gtype": "gage",
+        "title": "",
+        "label": "Solo %",
+        "format": "{{soil}}",
+        "min": 0,
+        "max": 100,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 680,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "36818cf675151ca5",
+        "type": "ui_gauge",
+        "z": "88014e6b70bd83d8",
+        "name": "Temperatura",
+        "group": "15671434f34e33fc",
+        "order": 2,
+        "width": "",
+        "height": "",
+        "gtype": "gage",
+        "title": "",
+        "label": "Temp °C",
+        "format": "{{temp}}",
+        "min": 0,
+        "max": 50,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 680,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "5bf42a3b538187b6",
+        "type": "ui_gauge",
+        "z": "88014e6b70bd83d8",
+        "name": "Umidade",
+        "group": "15671434f34e33fc",
+        "order": 3,
+        "width": "",
+        "height": "",
+        "gtype": "gage",
+        "title": "",
+        "label": "Umidade %",
+        "format": "{{humidity}}",
+        "min": 0,
+        "max": 100,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 680,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "bac1d633d895905d",
+        "type": "ui_text",
+        "z": "88014e6b70bd83d8",
+        "group": "15671434f34e33fc",
+        "width": "",
+        "height": "",
+        "name": "",
+        "label": "Bomba",
+        "format": "{{pump}}",
+        "layout": "",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 680,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "10fa7be3edb15e55",
+        "type": "ui_text",
+        "z": "88014e6b70bd83d8",
+        "group": "15671434f34e33fc",
+        "width": "",
+        "height": "",
+        "name": "",
+        "label": "Modo",
+        "format": "{{mode}}",
+        "layout": "",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 670,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "06a36a44faa5c6b0",
+        "type": "ui_dropdown",
+        "z": "88014e6b70bd83d8",
+        "name": "Modo",
+        "label": "Selecionar Modo",
+        "tooltip": "",
+        "place": "",
+        "group": "b9b0e9983d9354e4",
+        "width": "",
+        "height": "",
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "AUTO",
+                "value": "AUTO",
+                "type": "str"
+            },
+            {
+                "label": "MANUAL",
+                "value": "MANUAL",
+                "type": "str"
+            },
+            {
+                "label": "EMERGENCY",
+                "value": "EMERGENCY",
+                "type": "str"
+            }
+        ],
+        "topic": "",
+        "topicType": "str",
+        "className": "",
+        "x": 200,
+        "y": 360,
+        "wires": [
+            [
+                "f4448eafd20ca872"
+            ]
+        ]
+    },
+    {
+        "id": "f4448eafd20ca872",
+        "type": "mqtt out",
+        "z": "88014e6b70bd83d8",
+        "name": "",
+        "topic": "irrigador/cmd/mode",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "ba4901eaa44ee136",
+        "x": 470,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "8a1a1f26f44d6562",
+        "type": "ui_switch",
+        "z": "88014e6b70bd83d8",
+        "name": "Bomba",
+        "label": "Controle Bomba",
+        "tooltip": "",
+        "group": "b9b0e9983d9354e4",
+        "width": "",
+        "height": "",
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "topicType": "str",
+        "onvalue": "ON",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "OFF",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": true,
+        "className": "",
+        "x": 200,
+        "y": 420,
+        "wires": [
+            [
+                "72951572825cfc37"
+            ]
+        ]
+    },
+    {
+        "id": "72951572825cfc37",
+        "type": "mqtt out",
+        "z": "88014e6b70bd83d8",
+        "name": "",
+        "topic": "irrigador/cmd/pump",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "ba4901eaa44ee136",
+        "x": 460,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "155645289d4b54ab",
+        "type": "function",
+        "z": "88014e6b70bd83d8",
+        "name": "parse telemetry",
+        "func": "let data = JSON.parse(msg.payload);\n\n// Solo\nmsg.soil = data.soil;\n\n// Temperatura\nmsg.temp = data.temp;\n\n// Umidade\nmsg.humidity = data.humidity;\n\n// Bomba\nmsg.pump = data.pump ? \"ON\" : \"OFF\";\n\n// Modo\nif(data.mode === 0) msg.mode = \"AUTO\";\nif(data.mode === 1) msg.mode = \"MANUAL\";\nif(data.mode === 2) msg.mode = \"EMERGENCY\";\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 120,
+        "wires": [
+            [
+                "b97b4583b15c2d3e",
+                "36818cf675151ca5",
+                "5bf42a3b538187b6",
+                "bac1d633d895905d",
+                "10fa7be3edb15e55"
+            ]
+        ]
+    },
+    {
+        "id": "252427550cdfbbee",
+        "type": "json",
+        "z": "88014e6b70bd83d8",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 250,
+        "y": 120,
+        "wires": [
+            [
+                "155645289d4b54ab"
+            ]
+        ]
+    },
+    {
+        "id": "c80049785841c425",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-dashboard": "3.6.6"
+        }
+    }
+]
